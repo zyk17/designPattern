@@ -69,9 +69,9 @@ class Node {
         }
         delimiter = delimiter += "|";
         if(isDirectory){
-            System.out.println("\033[32;0m" + delimiter + name + "\033[0m");
+            System.out.println("\033[32;1m" + delimiter + name + "\033[0m");
         } else {
-            System.out.println("\033[33;0m" + delimiter +name + "\033[0m");
+            System.out.println("\033[33;1m" + delimiter +name + "\033[0m");
         }
     }
     public boolean isDirectory(){
