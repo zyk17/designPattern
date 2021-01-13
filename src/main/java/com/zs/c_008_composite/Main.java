@@ -25,7 +25,6 @@ public class Main {
         for (Node node : tree.getSonList()) {
             tree(node, level);
         }
-//        tree.getSonList().forEach(Main::tree);
     }
 
     private static Node createTree() {
