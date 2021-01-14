@@ -7,6 +7,8 @@ package com.zs.c_015_command;
 public class Main {
     public static void main(String[] args) {
         Content content = new Content("hi, ");
+        System.out.println("原始内容: " + content.str);
+
         Command copyCommand = new CopyCommand(content);
         Chain chain = new Chain();
         chain.addCommand(new DeleteCommand(content));
@@ -16,10 +18,11 @@ public class Main {
         chain.addCommand(copyCommand);
         chain.addCommand(copyCommand);
         chain.execute();
-
+        System.out.println("===============执行完成==================");
         chain.undo();
+        System.out.println("===============撤销完成==================");
 
-        System.out.println(content.str);
+        System.out.println("一系列操作完成后:" + content.str);
     }
 
 }
@@ -50,6 +53,11 @@ class CopyCommand implements Command {
         System.out.println(content.str);
         chain.undo();
     }
+
+    @Override
+    public String toString() {
+        return "复制命令";
+    }
 }
 
 class DeleteCommand implements Command {
@@ -75,5 +83,10 @@ class DeleteCommand implements Command {
         content.str += s;
         System.out.println(content.str);
         chain.undo();
+    }
+
+    @Override
+    public String toString() {
+        return "删除命令";
     }
 }

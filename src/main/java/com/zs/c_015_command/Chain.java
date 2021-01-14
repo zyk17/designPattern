@@ -15,14 +15,14 @@ public class Chain {
 
     public void execute() {
         if(pos < commandList.size()) {
-            System.out.println("第" + (pos+1) + "个开始执行");
+            System.out.println("第" + (pos+1) + "个开始执行,当前执行的命令是: " + commandList.get(pos));
             commandList.get(pos++).execute(this);
         }
     }
 
     public void undo() {
         if(pos > 0) {
-            System.out.println("第" + (pos) + "个开始撤销");
+            System.out.println("第" + (pos) + "个开始撤销,当前执行的命令是: " + commandList.get(pos-1));
             commandList.get(--pos).undo(this);
         }
     }
