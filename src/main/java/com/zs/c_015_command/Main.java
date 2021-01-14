@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) {
         Content content = new Content("hi, ");
         Command copyCommand = new CopyCommand(content);
-        Command deleteCommand = new DeleteCommand(content);
         Chain chain = new Chain();
         chain.addCommand(new DeleteCommand(content));
         chain.addCommand(copyCommand);
